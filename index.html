@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ORIOM Desktop</title>
+<meta name="description" content="Gean AP apresenta o ORIOM Desktop V2, sistema de automação laboratorial, e publica livros e narrativas para leitura livre.">
+<link rel="canonical" href="https://geanlovo132-glitch.github.io/oriom-desktop/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="ORIOM Desktop">
+<meta property="og:description" content="ORIOM Desktop V2, sistema de automação laboratorial, e livros e narrativas de Gean AP para leitura livre.">
+<meta property="og:url" content="https://geanlovo132-glitch.github.io/oriom-desktop/">
+<meta property="og:image" content="https://geanlovo132-glitch.github.io/oriom-desktop/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ORIOM Desktop">
+<meta name="twitter:description" content="ORIOM Desktop V2 e livros e narrativas de Gean AP.">
+<meta name="twitter:image" content="https://geanlovo132-glitch.github.io/oriom-desktop/og.jpg">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.png" type="image/png">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #070b18;
+  background-image: radial-gradient(ellipse at top, #10203a 0%, #070b18 58%);
+  color: #fff;
+  line-height: 1.5;
+}
+
+a:focus-visible {
+  outline: 2px solid #00aaff;
+  outline-offset: 3px;
+}
+
+header {
+  background: rgba(0, 0, 30, 0.85);
+  padding: 32px 20px 28px;
+  text-align: center;
+  border-bottom: 1px solid #00aaff;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 48px;
+}
+
+.tagline {
+  margin: 8px 0 0;
+  color: #00aaff;
+  font-size: 20px;
+}
+
+.intro {
+  max-width: 640px;
+  margin: 16px auto 0;
+  color: #d5deea;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px 32px;
+  padding: 16px 20px;
+  background: #061427;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 6px 2px;
+}
+
+nav a:hover {
+  color: #00aaff;
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+section {
+  padding: 40px 20px;
+}
+
+h2 {
+  margin: 0 0 8px;
+  color: #00bfff;
+  font-size: 32px;
+}
+
+.lead {
+  margin: 0 0 20px;
+  max-width: 720px;
+  color: #d5deea;
+}
+
+.banner {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid #00aaff44;
+}
+
+.video-oriom {
+  width: 100%;
+  max-width: 900px;
+  display: block;
+  margin: 24px auto 8px;
+  border-radius: 16px;
+  border: 1px solid #00aaff55;
+  background: #000;
+}
+
+.caption {
+  margin: 0 auto 20px;
+  max-width: 900px;
+  color: #c5cdd8;
+  font-size: 14px;
+}
+
+.card {
+  background: rgba(5, 15, 35, 0.88);
+  border: 1px solid #00aaff44;
+  border-radius: 16px;
+  padding: 24px;
+  margin-top: 20px;
+}
+
+.card ul {
+  margin: 12px 0;
+  padding-left: 20px;
+}
+
+.planned {
+  margin: 16px 0 0;
+  color: #c5cdd8;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 12px 18px;
+  background: #00aaff;
+  color: #041018;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.btn:hover {
+  background: #33bbff;
+}
+
+.works {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 8px;
+}
+
+.work {
+  width: 240px;
+  background: rgba(5, 15, 35, 0.88);
+  border: 1px solid #00aaff44;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.work a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.work img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.open {
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #00aaff;
+  color: #041018;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.work h3 {
+  margin: 14px 0 4px;
+  font-size: 18px;
+}
+
+.meta {
+  margin: 0 0 8px;
+  color: #00aaff;
+  font-size: 13px;
+}
+
+.work p:last-child {
+  margin: 0;
+  color: #d5deea;
+  font-size: 15px;
+}
+
+.contact a {
+  color: #7ecbff;
+}
+
+footer {
+  text-align: center;
+  padding: 28px 20px 36px;
+  color: #c5cdd8;
+  border-top: 1px solid #00aaff33;
+}
+
+@media (max-width: 720px) {
+  header h1 {
+    font-size: 32px;
+  }
+
+  .tagline {
+    font-size: 18px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  section {
+    padding: 28px 16px;
+  }
+
+  nav {
+    gap: 8px 20px;
+  }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>ORIOM Desktop</h1>
+  <p class="tagline">Gean AP</p>
+  <p class="intro">Gean AP desenvolve o ORIOM, sistema de automação e análise laboratorial, e escreve livros e narrativas.</p>
+</header>
+<nav aria-label="Seções">
+  <a href="#oriom">ORIOM</a>
+  <a href="#livros">Livros</a>
+  <a href="#narrativas">Narrativas</a>
+  <a href="#contato">Contato</a>
+</nav>
+<main>
+<section id="oriom">
+  <h2>ORIOM Desktop V2</h2>
+  <p class="lead">Sistema de automação e análise para laboratórios. O ORIOM cadastra ensaios, monta gráficos e relatórios e acompanha a qualidade estatística dos resultados.</p>
+  <img class="banner" src="banner-oriom.webp" width="1600" height="640" alt="Banner do ORIOM Desktop V2: automação, análise e inteligência para laboratórios modernos.">
+  <video class="video-oriom" controls playsinline preload="none" poster="oriom-poster.webp" width="1280" height="720">
+    <source src="oriom_demo.mp4" type="video/mp4">
+  </video>
+  <p class="caption">Demonstração do ORIOM Desktop V2. O vídeo começa quando você der play.</p>
+  <div class="card">
+    <p>O que o ORIOM já faz:</p>
+    <ul>
+      <li>Cadastro e controle de ensaios laboratoriais</li>
+      <li>Gráficos de resultados e relatórios automáticos</li>
+      <li>Controle estatístico de qualidade</li>
+    </ul>
+    <p class="planned">Em desenvolvimento: integração com inteligência artificial.</p>
+    <a class="btn" href="#contato">Fale sobre o ORIOM</a>
+  </div>
+</section>
+
+<section id="livros">
+  <h2>Livros</h2>
+  <p class="lead">Textos mais longos. A leitura neste site é livre: abra o PDF, sem cadastro.</p>
+  <div class="works">
+    <article class="work">
+      <a href="Amante_do_Amanha.pdf" target="_blank" rel="noopener" aria-label="Abrir PDF de Amante do Amanhã">
+        <img src="amante-do-amanha.webp" width="440" height="660" alt="" loading="lazy">
+        <span class="open">Abrir PDF</span>
+      </a>
+      <h3>Amante do Amanhã</h3>
+      <p class="meta">Livro · 43 páginas</p>
+      <p>Poemas e textos de um percurso íntimo: memória, queda e a procura de uma luz.</p>
+    </article>
+    <article class="work">
+      <a href="O_Terapeuta_das_Almas.pdf" target="_blank" rel="noopener" aria-label="Abrir PDF de O Terapeuta das Almas">
+        <img src="o-terapeuta-das-almas.webp" width="440" height="660" alt="" loading="lazy">
+        <span class="open">Abrir PDF</span>
+      </a>
+      <h3>O Terapeuta das Almas</h3>
+      <p class="meta">Narrativa · 11 páginas</p>
+      <p>Um terapeuta recebe Cecília, uma mulher em chamas, e escuta uma dor que o fogo não apaga.</p>
+    </article>
+    <article class="work">
+      <a href="A_Porta_O_Fogo_e_A_Casa.pdf" target="_blank" rel="noopener" aria-label="Abrir PDF de A Porta, o Fogo e a Casa">
+        <img src="a-porta-o-fogo-e-a-casa.webp" width="440" height="660" alt="" loading="lazy">
+        <span class="open">Abrir PDF</span>
+      </a>
+      <h3>A Porta, o Fogo e a Casa</h3>
+      <p class="meta">Três textos · 5 páginas</p>
+      <p>Desejo, escolha, culpa e o que entra na vida quando a porta fica entreaberta.</p>
+    </article>
+  </div>
+</section>
+
+<section id="narrativas">
+  <h2>Narrativas</h2>
+  <p class="lead">Histórias curtas e ilustradas sobre ciência, caminhos e fé. Não são artigos acadêmicos.</p>
+  <div class="works">
+    <article class="work">
+      <a href="A_Guerra_da_Criacao.pdf" target="_blank" rel="noopener" aria-label="Abrir PDF de A História da Guerra da Criação">
+        <img src="a-guerra-da-criacao.webp" width="440" height="660" alt="" loading="lazy">
+        <span class="open">Abrir PDF</span>
+      </a>
+      <h3>A História da Guerra da Criação</h3>
+      <p class="meta">Narrativa · 3 páginas</p>
+      <p>Seis elementos lutam no começo do universo até criar, juntos, a primeira célula.</p>
+    </article>
+    <article class="work">
+      <a href="A_Historia_do_Atomo.pdf" target="_blank" rel="noopener" aria-label="Abrir PDF de A História do Átomo">
+        <img src="a-historia-do-atomo.webp" width="440" height="660" alt="" loading="lazy">
+        <span class="open">Abrir PDF</span>
+      </a>
+      <h3>A História do Átomo</h3>
+      <p class="meta">Narrativa · 2 páginas</p>
+      <p>No reino invisível do átomo, prótons, nêutrons e elétrons mostram como a matéria se une.</p>
+    </article>
+    <article class="work">
+      <a href="Senhor_meu_Deus.pdf" target="_blank" rel="noopener" aria-label="Abrir PDF de Senhor meu Deus">
+        <img src="senhor-meu-deus.webp" width="440" height="660" alt="" loading="lazy">
+        <span class="open">Abrir PDF</span>
+      </a>
+      <h3>Senhor meu Deus</h3>
+      <p class="meta">Oração · 1 página</p>
+      <p>Pedido de calma, força e proteção para uma fé cansada.</p>
+    </article>
+    <article class="work">
+      <a href="O_Reino_das_Direcoes_Perdidas.pdf" target="_blank" rel="noopener" aria-label="Abrir PDF de O Reino das Direções Perdidas">
+        <img src="o-reino-das-direcoes-perdidas.webp" width="440" height="660" alt="" loading="lazy">
+        <span class="open">Abrir PDF</span>
+      </a>
+      <h3>O Reino das Direções Perdidas</h3>
+      <p class="meta">Narrativa · 6 páginas</p>
+      <p>Quando as placas mentem, Léo e o velho Elias reaprendem a achar o caminho olhando o céu.</p>
+    </article>
+    <article class="work">
+      <a href="a_danca.pdf" target="_blank" rel="noopener" aria-label="Abrir PDF de A Dança da Terra">
+        <img src="a-danca-da-terra.webp" width="440" height="660" alt="" loading="lazy">
+        <span class="open">Abrir PDF</span>
+      </a>
+      <h3>A Dança da Terra</h3>
+      <p class="meta">Narrativa · 5 páginas</p>
+      <p>A Terra explica à Lua as danças que fazem o dia, a noite e o ano em volta do Sol.</p>
+    </article>
+  </div>
+</section>
+
+<section id="contato">
+  <h2>Fale comigo</h2>
+  <p class="lead">Para o ORIOM ou para as obras, use o e-mail ou o LinkedIn.</p>
+  <div class="card contact">
+    <ul>
+      <li>E-mail: <a href="mailto:gean-lovo@outlook.com">gean-lovo@outlook.com</a></li>
+      <li>LinkedIn: <a href="https://www.linkedin.com/in/gean-ap" target="_blank" rel="noopener">linkedin.com/in/gean-ap</a></li>
+    </ul>
+  </div>
+</section>
+</main>
+<footer>
+  <p>© 2026 Gean AP. A leitura destas obras neste site é livre. Reprodução e distribuição fora daqui dependem de autorização do autor.</p>
+</footer>
+</body>
+</html>
