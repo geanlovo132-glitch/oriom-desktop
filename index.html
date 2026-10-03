@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ORIOM QC</title>
-<meta name="description" content="ORIOM QC é o programa de controle de qualidade para Windows: ensaios, PDF de conformidade, gráficos, investigação OOS e diagnóstico. O padrão é teor de metais preciosos.">
+<meta name="description" content="ORIOM QC controla ensaios no Windows: resultado contra especificação e incerteza, lote com vários parâmetros, PDF de conformidade, gráficos e investigação quando o resultado sai da faixa. O padrão é teor de metais preciosos.">
 <link rel="canonical" href="https://geanlovo132-glitch.github.io/oriom-desktop/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
@@ -191,6 +191,41 @@ h3 {
   font-size: 14px;
 }
 
+.subhead {
+  margin-top: 40px;
+}
+
+.fluxo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: passo;
+}
+
+.fluxo li {
+  background: rgba(5, 15, 35, 0.88);
+  border: 1px solid #00aaff33;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.fluxo li::before {
+  counter-increment: passo;
+  content: counter(passo);
+  display: block;
+  color: #00aaff;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.fluxo p {
+  margin: 6px 0 0;
+  color: #d5deea;
+}
+
 .group {
   margin-top: 28px;
 }
@@ -351,7 +386,8 @@ footer {
   .facts,
   .screens,
   .ramos,
-  .banco {
+  .banco,
+  .fluxo {
     grid-template-columns: 1fr;
   }
 
@@ -388,7 +424,8 @@ footer {
 <section id="programa">
   <p class="kicker">Programa para Windows</p>
   <h1>ORIOM QC</h1>
-  <p class="lead">Controle de qualidade de ensaios. O laboratório registra o resultado contra a especificação e a incerteza, acompanha o lote e emite o PDF de conformidade. O arquivo instalado se chama ORIOM Desktop.</p>
+  <p class="lead">O ORIOM QC é o controle de qualidade da bancada. O analista lança o resultado ao lado da especificação e da incerteza do método. O mesmo código de lote reúne vários parâmetros: ouro e prata no mesmo fundido, ou pH e viscosidade no mesmo produto. Se o número sai da faixa, o lote entra em investigação. O PDF de conformidade leva o nome e o CNPJ do laboratório, o padrão usado e um hash que identifica aquele registro.</p>
+  <p class="lead">O perfil que vem pronto é metais preciosos: fundição, refino, ourivesaria e teor por XRF, absorção atômica, fire assay e copelação. Quem responde pelo laboratório pode trocar o ramo. As listas, os nomes dos campos e o título do laudo mudam; os ensaios já gravados ficam. No Windows, o programa abre pelo atalho ORIOM Desktop.</p>
   <p class="actions">
     <a class="btn" href="#telas">Ver as telas</a>
     <a class="btn btn-ghost" href="#contato">Fale sobre o ORIOM QC</a>
@@ -402,23 +439,42 @@ footer {
 </section>
 
 <section id="telas">
-  <h2>As telas do programa</h2>
-  <p class="lead">O menu do ORIOM QC é este. Cada nome abaixo é uma aba do programa.</p>
+  <h2>Como um lote percorre o programa</h2>
+  <p class="lead">O trabalho começa nos cadastros e termina no laudo. As abas do menu seguem essa ordem.</p>
+  <ol class="fluxo">
+    <li>
+      <strong>Preparar a bancada</strong>
+      <p>Padrões com valor certificado e validade, equipamentos com calibração e, se houver cabo, a porta COM. Especificações com limite, recuperação e incerteza de cada par parâmetro + método.</p>
+    </li>
+    <li>
+      <strong>Lançar o ensaio</strong>
+      <p>Setor, código do lote, cliente, massa e o valor declarado. O resultado pode ser digitado, lido do instrumento ou importado de um CSV de XRF. “Novo parâmetro neste lote” guarda o código e abre o ensaio seguinte do mesmo material.</p>
+    </li>
+    <li>
+      <strong>Ver o lote inteiro</strong>
+      <p>O histórico filtra, corrige e exporta Excel. O painel do lote mostra quantos ensaios existem, quais estão fora e de qual cliente é a peça. O PDF pode pedir a senha de quem está logado, como visto.</p>
+    </li>
+    <li>
+      <strong>Decidir e olhar a série</strong>
+      <p>Resultado fora da especificação abre a investigação: causa, reteste e lote bloqueado ou liberado. Gráficos e diagnóstico leem a série já gravada e devolvem carta, comparação e um veredito de apoio. A liberação continua com o responsável técnico.</p>
+    </li>
+  </ol>
+  <h2 class="subhead">O que cada aba faz</h2>
 
   <div class="group">
     <h3>Registrar</h3>
     <ul class="screens">
       <li>
         <strong>Novo Ensaio</strong>
-        <p>Setor, lote, cliente, massa, parâmetro, método e resultado. Condições de processo e recuperação. Vários parâmetros no mesmo lote.</p>
+        <p>É a ficha do dia. Entram setor, lote, material, cliente, massa, teor ou valor declarado, método, parâmetro, analista e equipamento. O programa avisa a validade da calibração. Dá para informar branco, leitura do padrão, condições da corrida e ver a recuperação quando há resultado e valor esperado.</p>
       </li>
       <li>
         <strong>Padrões e equipamentos</strong>
-        <p>CRM com valor certificado, validade e organismo, como RBC/INMETRO. Equipamento com calibração e porta COM.</p>
+        <p>O CRM guarda lote, elemento, valor certificado, validade, número do certificado e o organismo, por exemplo RBC/INMETRO. O equipamento guarda código, tipo, validade da calibração e, para leitura automática, porta, velocidade e comando.</p>
       </li>
       <li>
         <strong>Especificações</strong>
-        <p>Limites, faixa ideal, recuperação e incerteza do método. Ao escolher parâmetro e método, a regra preenche o ensaio.</p>
+        <p>Cada regra liga um parâmetro a um método: mínimo, máximo, faixa ideal, recuperação e incerteza. Na hora do ensaio, escolher esse par preenche a especificação. Sem regra cadastrada, o programa avisa em vez de inventar limite.</p>
       </li>
     </ul>
   </div>
@@ -428,15 +484,15 @@ footer {
     <ul class="screens">
       <li>
         <strong>Histórico</strong>
-        <p>Filtro, edição e Excel. O PDF de conformidade leva identidade do laboratório, incerteza, CRM e o hash do ensaio. Pode pedir a senha de quem está logado.</p>
+        <p>Lista o que já foi gravado, com filtro, edição e exclusão conforme o perfil de quem entrou. Exporta Excel. O PDF de conformidade reúne identidade do laboratório, incerteza, CRM e o hash daquele ensaio. Se o resultado está fora, o histórico oferece abrir a investigação.</p>
       </li>
       <li>
         <strong>Painel do lote</strong>
-        <p>Ensaios daquele código, OOS, equipamento, cliente e massa. Dali sai o PDF com visto ou um parâmetro novo.</p>
+        <p>Junta, num código só, a quantidade de ensaios, os que estão fora da especificação, o equipamento, o cliente, a massa e os parâmetros medidos. Dali se emite o PDF com visto ou se acrescenta outro parâmetro ao mesmo lote.</p>
       </li>
       <li>
         <strong>Investigação OOS</strong>
-        <p>Causa, reteste, data e conclusão. O lote fica bloqueado ou liberado. Quem libera é o laboratório.</p>
+        <p>Quando o resultado não conforma, registra causa, reteste, data, conclusão e o motivo do visto. O status do lote fica bloqueado ou liberado. Fechar a investigação é uma ação à parte, depois da conclusão.</p>
       </li>
     </ul>
   </div>
@@ -446,28 +502,28 @@ footer {
     <ul class="screens">
       <li>
         <strong>Diagnóstico</strong>
-        <p>Veredito e ação sugerida no lote ou no histórico. Shewhart, causa de OOS, cluster e correlação só entram com amostra suficiente. Em metais, comenta ouro e prata no mesmo fundido e compara o quilate.</p>
+        <p>Lê o lote filtrado ou o histórico inteiro e devolve um veredito seguido de uma ação sugerida. Carta de Shewhart, ranking de causa e agrupamento só aparecem quando há ensaios suficientes; em série curta o texto avisa. No ramo de metais, cita ouro e prata do mesmo fundido e compara o quilate informado com o teor. Dá para exportar esse texto em DOCX.</p>
       </li>
       <li>
         <strong>Gráficos</strong>
-        <p>Carta de controle, resultado contra a carga da corrida e um gráfico X × Y com dois campos numéricos. Dá para exportar DOCX.</p>
+        <p>Três leituras da mesma série: carta de controle, resultado contra a carga ou o volume da corrida, e um X × Y em que se escolhem dois campos numéricos. O nome do gráfico do meio muda com o ramo. Também exporta DOCX.</p>
       </li>
       <li>
         <strong>Sistema</strong>
-        <p>Ramo, CNPJ e endereço no laudo, usuários, backup, caminho do banco, tema claro ou escuro e licença deste computador.</p>
+        <p>Identidade que entra no PDF: nome, CNPJ, endereço e incerteza padrão. Também ficam aqui o ramo, os usuários, o backup, o arquivo do banco, o tema claro ou escuro para a bancada ou para o turno, e a licença deste computador.</p>
       </li>
     </ul>
   </div>
-  <p class="note">O diagnóstico apoia a decisão. Ele avisa quando a série é curta demais para um padrão e não substitui o responsável técnico.</p>
+  <p class="note">O diagnóstico é apoio. Ele não libera lote e não substitui o responsável técnico. O manual do programa abre na tecla F1.</p>
 </section>
 
 <section id="ramos">
   <h2>O ramo muda as listas</h2>
-  <p class="lead">Em Sistema, o responsável escolhe o perfil deste computador. Telas, campos e o título do PDF acompanham o ramo. Os ensaios já gravados permanecem.</p>
+  <p class="lead">O mesmo programa serve a mais de um tipo de laboratório. Em Sistema, responsável ou admin escolhe o perfil deste computador. A troca é imediata: setores, parâmetros, métodos, rótulos da tela e o título do PDF passam a falar a língua daquele ramo. Os ensaios antigos não são apagados. Depois da troca, as especificações e os CRMs precisam ser cadastrados de novo com as listas novas.</p>
   <div class="ramos">
     <article class="ramo ramo-main">
       <h3>Metais preciosos / ourivesaria</h3>
-      <p>Perfil padrão. Fundição, refino e ourivesaria. Parâmetros como Au ‰, Ag ‰ e karat. Métodos: fire assay, copelação, XRF e absorção atômica.</p>
+      <p>Fundição, refino, ourivesaria e laboratório de ensaio. Mede Au ‰, Ag ‰, cobre, densidade e karat. Os métodos da lista são fire assay, copelação, XRF, absorção atômica, gravimetria e partição. O diagnóstico deste ramo comenta ouro e prata no mesmo fundido.</p>
     </article>
     <article class="ramo">
       <h3>Cosméticos e higiene</h3>
@@ -494,22 +550,25 @@ footer {
 
 <section id="laudo">
   <h2>Bancada, laudo e acesso</h2>
+  <p class="lead">O resultado não precisa ser só digitado, e o registro não fica solto num arquivo sem dono.</p>
   <div class="banco">
     <article>
-      <h3>Na bancada</h3>
+      <h3>De onde vem o número</h3>
       <ul>
-        <li>Ler o instrumento na porta COM cadastrada.</li>
-        <li>Importar CSV de XRF e escolher elemento e linha.</li>
-        <li>Cada ensaio gravado leva um hash. O histórico avisa se o registro não confere. O PDF mostra o hash da emissão.</li>
+        <li>Digitar o resultado na ficha.</li>
+        <li>Ler o instrumento na porta COM do equipamento selecionado. O botão Portas lista as portas que o Windows enxerga.</li>
+        <li>Importar CSV de XRF, com vírgula, ponto e vírgula ou tabulação. Se houver várias colunas, escolhe-se o elemento e a linha.</li>
+        <li>Cada ensaio gravado recebe um hash. O histórico avisa se alguém alterou o registro fora do programa. O PDF imprime o hash da emissão.</li>
       </ul>
     </article>
     <article>
-      <h3>Quem entra</h3>
+      <h3>Quem usa e onde os dados ficam</h3>
       <ul>
-        <li>Operador e analista registram o dia a dia.</li>
-        <li>Responsável e admin cuidam de licença, usuários, ramo, backup e banco.</li>
-        <li>Avaliação de 14 dias neste computador. Depois, a licença vale para a máquina informada.</li>
-        <li>Um posto usa SQLite. Vários postos ao mesmo tempo usam PostgreSQL.</li>
+        <li>Operador e analista lançam ensaios. Responsável e admin ativam licença, criam usuários, trocam o ramo, restauram backup e apontam o banco.</li>
+        <li>A primeira abertura pede senha nova, com no mínimo 8 caracteres. O visto do PDF usa a senha de quem está logado.</li>
+        <li>Há 14 dias de avaliação neste computador. A licença seguinte vale para o identificador desta máquina e não depende do ramo.</li>
+        <li>Um posto guarda tudo num arquivo SQLite. Dois postos no mesmo arquivo, ao mesmo tempo, não são seguros. Vários postos juntos usam PostgreSQL.</li>
+        <li>O backup copia o banco e pode ir também para um pendrive. O programa avisa se passaram sete dias sem essa cópia externa.</li>
       </ul>
     </article>
   </div>
