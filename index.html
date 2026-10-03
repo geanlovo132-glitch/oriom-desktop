@@ -237,6 +237,37 @@ h3 {
   text-transform: uppercase;
 }
 
+.portfolio {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-top: 8px;
+}
+
+.shot {
+  background: rgba(5, 15, 35, 0.88);
+  border: 1px solid #00aaff33;
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  background: #efeae2;
+}
+
+.shot h3 {
+  margin: 14px 0 6px;
+}
+
+.shot p {
+  margin: 0;
+  color: #d5deea;
+}
+
 .screens {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -459,62 +490,72 @@ footer {
       <p>Resultado fora da especificação abre a investigação: causa, reteste e lote bloqueado ou liberado. Gráficos e diagnóstico leem a série já gravada e devolvem carta, comparação e um veredito de apoio. A liberação continua com o responsável técnico.</p>
     </li>
   </ol>
-  <h2 class="subhead">O que cada aba faz</h2>
+  <h2 class="subhead">As telas, na ordem do menu</h2>
+  <p class="lead">Cada figura é uma página real do ORIOM QC, no tema claro da bancada. O menu à esquerda separa rotina, controle e administração.</p>
 
   <div class="group">
-    <h3>Registrar</h3>
-    <ul class="screens">
-      <li>
-        <strong>Novo Ensaio</strong>
-        <p>É a ficha do dia. Entram setor, lote, material, cliente, massa, teor ou valor declarado, método, parâmetro, analista e equipamento. O programa avisa a validade da calibração. Dá para informar branco, leitura do padrão, condições da corrida e ver a recuperação quando há resultado e valor esperado.</p>
-      </li>
-      <li>
-        <strong>Padrões e equipamentos</strong>
-        <p>O CRM guarda lote, elemento, valor certificado, validade, número do certificado e o organismo, por exemplo RBC/INMETRO. O equipamento guarda código, tipo, validade da calibração e, para leitura automática, porta, velocidade e comando.</p>
-      </li>
-      <li>
-        <strong>Especificações</strong>
-        <p>Cada regra liga um parâmetro a um método: mínimo, máximo, faixa ideal, recuperação e incerteza. Na hora do ensaio, escolher esse par preenche a especificação. Sem regra cadastrada, o programa avisa em vez de inventar limite.</p>
-      </li>
-    </ul>
+    <h3>Rotina</h3>
+    <div class="portfolio">
+      <article class="shot">
+        <img src="tela-novo-ensaio.webp" width="1024" height="542" alt="Tela Novo ensaio do ORIOM QC, com identificação do lote, resultado contra a especificação e processo da corrida.">
+        <h3>Novo ensaio</h3>
+        <p>A ficha do dia. À esquerda, a identificação: setor, lote ou fundido, material, cliente, amostra, massa e teor declarado, método, parâmetro, unidade, analista e equipamento, com a validade da calibração. À direita, o resultado contra a especificação: teor, limites, valor esperado, incerteza, origem da leitura, branco, leitura do padrão e o CRM. Os botões Ler e CSV XRF trazem o número do instrumento. Embaixo, o processo da corrida: massa da amostra, carga, fundente, temperatura, tempo e recuperação. Salvar grava o ensaio; “Novo parâmetro neste lote” reaproveita o código para a medida seguinte.</p>
+      </article>
+      <article class="shot">
+        <img src="tela-historico.webp" width="1024" height="544" alt="Tela Histórico do ORIOM QC, com a tabela de ensaios e os botões de Excel e PDF de conformidade." loading="lazy">
+        <h3>Histórico</h3>
+        <p>A busca filtra por lote, produto, analista ou parâmetro. A tabela mostra setor, produto, resultado, limites, status, índice ORIOM e analista. Dali se edita ou exclui a linha selecionada, exporta Excel ou gera o PDF de conformidade. Os atalhos embaixo abrem a investigação OOS ou o painel daquele lote. No topo da janela ficam o usuário, o papel, o último lote, os OOS abertos e os dias de licença.</p>
+      </article>
+      <article class="shot">
+        <img src="tela-painel-lote.webp" width="1024" height="546" alt="Tela Painel do lote do ORIOM QC, com o lote L3 liberado e a tabela de parâmetros." loading="lazy">
+        <h3>Painel do lote</h3>
+        <p>Escolhe-se o código no alto. O painel resume se o lote está liberado ou não, quantos ensaios foram avaliados, quantos OOS e investigações existem, o equipamento, o analista, os parâmetros, o cliente e a massa. A tabela lista cada parâmetro com resultado, especificação, status, recuperação, origem e data. Os botões de baixo abrem o OOS do ensaio selecionado, emitem o PDF com visto ou acrescentam outro parâmetro ao mesmo lote.</p>
+      </article>
+      <article class="shot">
+        <img src="tela-investigacao-oos.webp" width="1024" height="544" alt="Tela Investigação OOS do ORIOM QC, com causa, reteste e status do lote bloqueado." loading="lazy">
+        <h3>Investigação OOS</h3>
+        <p>A lista de cima reúne os ensaios fora da especificação. O registro pede causa, conclusão, reteste, data, motivo do visto e o status do lote, bloqueado ou liberado. Salvar guarda a investigação; fechar encerra quando a conclusão já está escrita. A coluna Alertas ao vivo avisa OOS, padrão vencido e lote bloqueado antes mesmo de gravar, se resultado e especificação já indicam desvio.</p>
+      </article>
+    </div>
   </div>
 
   <div class="group">
-    <h3>O lote</h3>
-    <ul class="screens">
-      <li>
-        <strong>Histórico</strong>
-        <p>Lista o que já foi gravado, com filtro, edição e exclusão conforme o perfil de quem entrou. Exporta Excel. O PDF de conformidade reúne identidade do laboratório, incerteza, CRM e o hash daquele ensaio. Se o resultado está fora, o histórico oferece abrir a investigação.</p>
-      </li>
-      <li>
-        <strong>Painel do lote</strong>
-        <p>Junta, num código só, a quantidade de ensaios, os que estão fora da especificação, o equipamento, o cliente, a massa e os parâmetros medidos. Dali se emite o PDF com visto ou se acrescenta outro parâmetro ao mesmo lote.</p>
-      </li>
-      <li>
-        <strong>Investigação OOS</strong>
-        <p>Quando o resultado não conforma, registra causa, reteste, data, conclusão e o motivo do visto. O status do lote fica bloqueado ou liberado. Fechar a investigação é uma ação à parte, depois da conclusão.</p>
-      </li>
-    </ul>
+    <h3>Controle</h3>
+    <div class="portfolio">
+      <article class="shot">
+        <img src="tela-padroes.webp" width="1024" height="543" alt="Tela Padrões do ORIOM QC, no cadastro de lotes de CRM." loading="lazy">
+        <h3>Padrões</h3>
+        <p>Duas abas: Padrões (CRM) e Equipamentos. No CRM entram o código do lote, o elemento, o valor certificado, a tolerância, o início e o fim da validade, o número do certificado e o organismo, como RBC, INMETRO ou o produtor. A observação fica livre. A lista de baixo guarda os lotes já salvos para serem escolhidos no ensaio.</p>
+      </article>
+      <article class="shot">
+        <img src="tela-especificacoes.webp" width="1024" height="542" alt="Tela Especificações do ORIOM QC, no cadastro de regras do método." loading="lazy">
+        <h3>Especificações</h3>
+        <p>Cada regra liga parâmetro e método a uma matriz ou produto. Definem-se limite mínimo e máximo, faixa ideal, recuperação, diferença máxima entre padrões, branco máximo, incerteza do método, fonte e uma ação recomendada. Na hora do ensaio, escolher esse par preenche a especificação. A tabela lista as regras já gravadas.</p>
+      </article>
+      <article class="shot">
+        <img src="tela-diagnostico.webp" width="1024" height="546" alt="Tela Diagnóstico do ORIOM QC, com veredito conforme do lote L3." loading="lazy">
+        <h3>Diagnóstico</h3>
+        <p>Filtra-se por lote ou pede-se o histórico completo. O veredito aparece primeiro: conforme, ou o que fazer agora. O texto ao lado detalha resultado, especificação, média do processo e o índice ORIOM. A lista à esquerda separa consistência do lote, carta de controle, causas, CRM, correlação, cluster, tendência e diagnóstico pontual. Cluster e correlação só entram com amostra suficiente. Exportar DOCX grava esse parecer. Ele apoia a decisão e não libera o lote no lugar do responsável técnico.</p>
+      </article>
+      <article class="shot">
+        <img src="tela-graficos.webp" width="1024" height="540" alt="Tela Gráficos do ORIOM QC, na carta de controle do resultado." loading="lazy">
+        <h3>Gráficos</h3>
+        <p>Três abas: carta de controle, teor por carga e índice. A carta desenha o resultado, os limites da especificação, a média e as faixas de três desvios. No explorador escolhem-se o lote e os eixos X e Y; Gerar X × Y monta a comparação, e Exportar DOCX leva o gráfico para fora. O programa avisa quando ainda não há correlação de processo para mostrar.</p>
+      </article>
+    </div>
   </div>
 
   <div class="group">
-    <h3>Ler o processo</h3>
-    <ul class="screens">
-      <li>
-        <strong>Diagnóstico</strong>
-        <p>Lê o lote filtrado ou o histórico inteiro e devolve um veredito seguido de uma ação sugerida. Carta de Shewhart, ranking de causa e agrupamento só aparecem quando há ensaios suficientes; em série curta o texto avisa. No ramo de metais, cita ouro e prata do mesmo fundido e compara o quilate informado com o teor. Dá para exportar esse texto em DOCX.</p>
-      </li>
-      <li>
-        <strong>Gráficos</strong>
-        <p>Três leituras da mesma série: carta de controle, resultado contra a carga ou o volume da corrida, e um X × Y em que se escolhem dois campos numéricos. O nome do gráfico do meio muda com o ramo. Também exporta DOCX.</p>
-      </li>
-      <li>
-        <strong>Sistema</strong>
-        <p>Identidade que entra no PDF: nome, CNPJ, endereço e incerteza padrão. Também ficam aqui o ramo, os usuários, o backup, o arquivo do banco, o tema claro ou escuro para a bancada ou para o turno, e a licença deste computador.</p>
-      </li>
-    </ul>
+    <h3>Administração</h3>
+    <div class="portfolio">
+      <article class="shot">
+        <img src="tela-sistema.webp" width="1024" height="549" alt="Tela Sistema do ORIOM QC, com tema, licença, identidade do laboratório e backup." loading="lazy">
+        <h3>Sistema</h3>
+        <p>Aparência: tema claro da bancada ou escuro do turno. Licença: nome do laboratório, validade e chave. A chave é emitida pelo fornecedor; o programa não a gera. A identidade — razão social, CNPJ, endereço e incerteza padrão — entra no PDF. Backup agora, restaurar e backup automático diário ficam na mesma tela, seguidos do banco em rede para mais de um posto.</p>
+      </article>
+    </div>
   </div>
-  <p class="note">O diagnóstico é apoio. Ele não libera lote e não substitui o responsável técnico. O manual do programa abre na tecla F1.</p>
+  <p class="note">O manual do programa abre na tecla F1.</p>
 </section>
 
 <section id="ramos">
