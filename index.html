@@ -12,6 +12,9 @@
 <meta property="og:description" content="Controle de qualidade de ensaios no Windows. Teor, refino e ourivesaria, com ramos para outros laboratórios.">
 <meta property="og:url" content="https://geanlovo132-glitch.github.io/oriom-desktop/">
 <meta property="og:image" content="https://geanlovo132-glitch.github.io/oriom-desktop/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tela Novo ensaio do ORIOM QC, com a ficha do lote e o resultado contra a especificação.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ORIOM QC">
 <meta name="twitter:description" content="Controle de qualidade de ensaios no Windows. Teor, refino e ourivesaria.">
@@ -89,8 +92,18 @@ nav a {
   padding: 4px 0;
 }
 
-nav a:hover {
+nav a:hover,
+nav a[aria-current="page"] {
   color: #00aaff;
+}
+
+nav a[aria-current="page"] {
+  border-bottom: 2px solid #00aaff;
+}
+
+section[id],
+.shot[id] {
+  scroll-margin-top: 76px;
 }
 
 main {
@@ -191,6 +204,29 @@ h3 {
   font-size: 14px;
 }
 
+.indice {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.indice a {
+  color: #d5deea;
+  text-decoration: none;
+  border: 1px solid #00aaff55;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 14px;
+}
+
+.indice a:hover {
+  color: #041018;
+  background: #00aaff;
+}
+
 .subhead {
   margin-top: 40px;
 }
@@ -251,12 +287,37 @@ h3 {
   padding: 14px;
 }
 
-.shot img {
+.zoom {
+  display: block;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: #efeae2;
+  cursor: zoom-in;
+  font: inherit;
+  color: inherit;
+}
+
+.zoom img {
   display: block;
   width: 100%;
   height: auto;
   border-radius: 8px;
   background: #efeae2;
+}
+
+.zoom span {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: #041018cc;
+  color: #fff;
+  font-size: 13px;
 }
 
 .shot h3 {
@@ -266,6 +327,55 @@ h3 {
 .shot p {
   margin: 0;
   color: #d5deea;
+}
+
+.shot .demo {
+  margin-top: 8px;
+  color: #9eb0c4;
+  font-size: 14px;
+}
+
+#ampliar {
+  box-sizing: border-box;
+  width: min(1100px, 96vw);
+  max-width: 96vw;
+  max-height: 92vh;
+  margin: auto;
+  padding: 12px;
+  border: 1px solid #00aaff55;
+  border-radius: 12px;
+  background: #06101f;
+  color: #fff;
+}
+
+#ampliar::backdrop {
+  background: #070b18ee;
+}
+
+#ampliar img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: calc(92vh - 64px);
+  object-fit: contain;
+  border-radius: 8px;
+  background: #efeae2;
+}
+
+#ampliar form {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 0 8px;
+}
+
+#ampliar button {
+  padding: 6px 12px;
+  border: 1px solid #00aaff;
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
 }
 
 .screens {
@@ -398,6 +508,18 @@ h3 {
   font-size: 14px;
 }
 
+.passos {
+  margin: 16px 0 0;
+  padding-left: 22px;
+  max-width: 680px;
+  color: #d5deea;
+  font-size: 18px;
+}
+
+.passos li + li {
+  margin-top: 8px;
+}
+
 .contact a {
   color: #7ecbff;
 }
@@ -407,6 +529,10 @@ footer {
   padding: 28px 20px 36px;
   color: #c5cdd8;
   border-top: 1px solid #00aaff33;
+}
+
+footer a {
+  color: #7ecbff;
 }
 
 @media (max-width: 860px) {
@@ -442,11 +568,10 @@ footer {
   <div class="top-inner">
     <a class="brand" href="#programa">ORIOM QC<span>Teor, refino e ourivesaria</span></a>
     <nav aria-label="Seções">
-      <a href="#programa">Programa</a>
+      <a href="#programa" aria-current="page">Programa</a>
       <a href="#telas">Telas</a>
       <a href="#ramos">Ramos</a>
       <a href="#laudo">Laudo</a>
-      <a href="#textos">Textos</a>
       <a href="#contato">Contato</a>
     </nav>
   </div>
@@ -455,8 +580,7 @@ footer {
 <section id="programa">
   <p class="kicker">Programa para Windows</p>
   <h1>ORIOM QC</h1>
-  <p class="lead">O ORIOM QC é o controle de qualidade da bancada. O analista lança o resultado ao lado da especificação e da incerteza do método. O mesmo código de lote reúne vários parâmetros: ouro e prata no mesmo fundido, ou pH e viscosidade no mesmo produto. Se o número sai da faixa, o lote entra em investigação. O PDF de conformidade leva o nome e o CNPJ do laboratório, o padrão usado e um hash que identifica aquele registro.</p>
-  <p class="lead">O perfil que vem pronto é metais preciosos: fundição, refino, ourivesaria e teor por XRF, absorção atômica, fire assay e copelação. Quem responde pelo laboratório pode trocar o ramo. As listas, os nomes dos campos e o título do laudo mudam; os ensaios já gravados ficam. No Windows, o programa abre pelo atalho ORIOM Desktop.</p>
+  <p class="lead">O ORIOM QC registra o ensaio contra a especificação e a incerteza, acompanha o lote e emite o PDF de conformidade no Windows.</p>
   <p class="actions">
     <a class="btn" href="#telas">Ver as telas</a>
     <a class="btn btn-ghost" href="#contato">Fale sobre o ORIOM QC</a>
@@ -472,6 +596,18 @@ footer {
 <section id="telas">
   <h2>Como um lote percorre o programa</h2>
   <p class="lead">O trabalho começa nos cadastros e termina no laudo. As abas do menu seguem essa ordem.</p>
+  <nav class="indice" aria-label="Telas do programa">
+    <a href="#novo-ensaio">Novo ensaio</a>
+    <a href="#historico">Histórico</a>
+    <a href="#painel">Painel</a>
+    <a href="#oos">OOS</a>
+    <a href="#padroes">Padrões</a>
+    <a href="#equipamentos">Equipamentos</a>
+    <a href="#especificacoes">Especificações</a>
+    <a href="#diagnostico">Diagnóstico</a>
+    <a href="#graficos">Gráficos</a>
+    <a href="#sistema">Sistema</a>
+  </nav>
   <ol class="fluxo">
     <li>
       <strong>Preparar a bancada</strong>
@@ -491,30 +627,46 @@ footer {
     </li>
   </ol>
   <h2 class="subhead">As telas, na ordem do menu</h2>
-  <p class="lead">Cada figura é uma página real do ORIOM QC, no tema claro da bancada. O menu à esquerda separa rotina, controle e administração.</p>
+  <p class="lead">Cada figura é uma tela do ORIOM QC, no tema claro da bancada. O menu à esquerda separa rotina, controle e administração.</p>
 
   <div class="group">
     <h3>Rotina</h3>
     <div class="portfolio">
-      <article class="shot">
-        <img src="tela-novo-ensaio.webp" width="1024" height="542" alt="Tela Novo ensaio do ORIOM QC, com identificação do lote, resultado contra a especificação e processo da corrida.">
+      <article class="shot" id="novo-ensaio">
+        <button type="button" class="zoom">
+          <img src="tela-novo-ensaio.webp" width="1024" height="542" alt="Tela Novo ensaio do ORIOM QC, com identificação do lote, resultado contra a especificação e processo da corrida.">
+          <span>Ampliar</span>
+        </button>
         <h3>Novo ensaio</h3>
         <p>A ficha do dia. À esquerda, a identificação: setor, lote ou fundido, material, cliente, amostra, massa e teor declarado, método, parâmetro, unidade, analista e equipamento, com a validade da calibração. À direita, o resultado contra a especificação: teor, limites, valor esperado, incerteza, origem da leitura, branco, leitura do padrão e o CRM. Os botões Ler e CSV XRF trazem o número do instrumento. Embaixo, o processo da corrida: massa da amostra, carga, fundente, temperatura, tempo e recuperação. Salvar grava o ensaio; “Novo parâmetro neste lote” reaproveita o código para a medida seguinte.</p>
+        <p class="demo">Laboratório de demonstração: nomes como “Teste”, o lote L3 e as datas são de amostra.</p>
       </article>
-      <article class="shot">
-        <img src="tela-historico.webp" width="1024" height="544" alt="Tela Histórico do ORIOM QC, com a tabela de ensaios e os botões de Excel e PDF de conformidade." loading="lazy">
+      <article class="shot" id="historico">
+        <button type="button" class="zoom">
+          <img src="tela-historico.webp" width="1024" height="544" alt="Tela Histórico do ORIOM QC, com a tabela de ensaios e os botões de Excel e PDF de conformidade." loading="lazy">
+          <span>Ampliar</span>
+        </button>
         <h3>Histórico</h3>
         <p>A busca filtra por lote, produto, analista ou parâmetro. A tabela mostra setor, produto, resultado, limites, status, índice ORIOM e analista. Dali se edita ou exclui a linha selecionada, exporta Excel ou gera o PDF de conformidade. Os atalhos embaixo abrem a investigação OOS ou o painel daquele lote. No topo da janela ficam o usuário, o papel, o último lote, os OOS abertos e os dias de licença.</p>
+        <p class="demo">Laboratório de demonstração: nomes como “Teste”, o lote L3 e as datas são de amostra.</p>
       </article>
-      <article class="shot">
-        <img src="tela-painel-lote.webp" width="1024" height="546" alt="Tela Painel do lote do ORIOM QC, com o lote L3 liberado e a tabela de parâmetros." loading="lazy">
+      <article class="shot" id="painel">
+        <button type="button" class="zoom">
+          <img src="tela-painel-lote.webp" width="1024" height="546" alt="Tela Painel do lote do ORIOM QC, com o lote L3 liberado e a tabela de parâmetros." loading="lazy">
+          <span>Ampliar</span>
+        </button>
         <h3>Painel do lote</h3>
         <p>Escolhe-se o código no alto. O painel resume se o lote está liberado ou não, quantos ensaios foram avaliados, quantos OOS e investigações existem, o equipamento, o analista, os parâmetros, o cliente e a massa. A tabela lista cada parâmetro com resultado, especificação, status, recuperação, origem e data. Os botões de baixo abrem o OOS do ensaio selecionado, emitem o PDF com visto ou acrescentam outro parâmetro ao mesmo lote.</p>
+        <p class="demo">Laboratório de demonstração: nomes como “Teste”, o lote L3 e as datas são de amostra.</p>
       </article>
-      <article class="shot">
-        <img src="tela-investigacao-oos.webp" width="1024" height="544" alt="Tela Investigação OOS do ORIOM QC, com causa, reteste e status do lote bloqueado." loading="lazy">
+      <article class="shot" id="oos">
+        <button type="button" class="zoom">
+          <img src="tela-investigacao-oos.webp" width="1024" height="544" alt="Tela Investigação OOS do ORIOM QC, com causa, reteste e status do lote bloqueado." loading="lazy">
+          <span>Ampliar</span>
+        </button>
         <h3>Investigação OOS</h3>
         <p>A lista de cima reúne os ensaios fora da especificação. O registro pede causa, conclusão, reteste, data, motivo do visto e o status do lote, bloqueado ou liberado. Salvar guarda a investigação; fechar encerra quando a conclusão já está escrita. A coluna Alertas ao vivo avisa OOS, padrão vencido e lote bloqueado antes mesmo de gravar, se resultado e especificação já indicam desvio.</p>
+        <p class="demo">Laboratório de demonstração: nomes como “Teste”, o lote L3 e as datas são de amostra.</p>
       </article>
     </div>
   </div>
@@ -522,25 +674,50 @@ footer {
   <div class="group">
     <h3>Controle</h3>
     <div class="portfolio">
-      <article class="shot">
-        <img src="tela-padroes.webp" width="1024" height="543" alt="Tela Padrões do ORIOM QC, no cadastro de lotes de CRM." loading="lazy">
+      <article class="shot" id="padroes">
+        <button type="button" class="zoom">
+          <img src="tela-padroes.webp" width="1024" height="543" alt="Tela Padrões do ORIOM QC, no cadastro de lotes de CRM." loading="lazy">
+          <span>Ampliar</span>
+        </button>
         <h3>Padrões</h3>
-        <p>Duas abas: Padrões (CRM) e Equipamentos. No CRM entram o código do lote, o elemento, o valor certificado, a tolerância, o início e o fim da validade, o número do certificado e o organismo, como RBC, INMETRO ou o produtor. A observação fica livre. A lista de baixo guarda os lotes já salvos para serem escolhidos no ensaio.</p>
+        <p>A aba Padrões (CRM). Entram o código do lote, o elemento, o valor certificado, a tolerância, o início e o fim da validade, o número do certificado e o organismo, como RBC, INMETRO ou o produtor. A observação fica livre. A lista de baixo guarda os lotes já salvos para serem escolhidos no ensaio. A aba ao lado cadastra o instrumento.</p>
+        <p class="demo">Laboratório de demonstração: nomes como “Teste”, o lote L3 e as datas são de amostra.</p>
       </article>
-      <article class="shot">
-        <img src="tela-especificacoes.webp" width="1024" height="542" alt="Tela Especificações do ORIOM QC, no cadastro de regras do método." loading="lazy">
+      <article class="shot" id="equipamentos">
+        <button type="button" class="zoom">
+          <img src="tela-equipamentos.webp" width="1024" height="577" alt="Aba Equipamentos do ORIOM QC, com calibração, validade, porta COM e baud." loading="lazy">
+          <span>Ampliar</span>
+        </button>
+        <h3>Equipamentos</h3>
+        <p>A segunda aba de Padrões. Código, descrição, tipo, protocolo e setor identificam o instrumento. Calibração e validade: ensaio com calibração vencida não é salvo. Certificado, porta COM, baud e comando servem à leitura serial. O botão Portas lista as portas que o Windows enxerga. Comando vazio espera o PRINT do equipamento. A tabela guarda os instrumentos já cadastrados.</p>
+        <p class="demo">Laboratório de demonstração: nomes como “Teste”, o lote L3 e as datas são de amostra.</p>
+      </article>
+      <article class="shot" id="especificacoes">
+        <button type="button" class="zoom">
+          <img src="tela-especificacoes.webp" width="1024" height="542" alt="Tela Especificações do ORIOM QC, no cadastro de regras do método." loading="lazy">
+          <span>Ampliar</span>
+        </button>
         <h3>Especificações</h3>
         <p>Cada regra liga parâmetro e método a uma matriz ou produto. Definem-se limite mínimo e máximo, faixa ideal, recuperação, diferença máxima entre padrões, branco máximo, incerteza do método, fonte e uma ação recomendada. Na hora do ensaio, escolher esse par preenche a especificação. A tabela lista as regras já gravadas.</p>
+        <p class="demo">Laboratório de demonstração: nomes como “Teste”, o lote L3 e as datas são de amostra.</p>
       </article>
-      <article class="shot">
-        <img src="tela-diagnostico.webp" width="1024" height="546" alt="Tela Diagnóstico do ORIOM QC, com veredito conforme do lote L3." loading="lazy">
+      <article class="shot" id="diagnostico">
+        <button type="button" class="zoom">
+          <img src="tela-diagnostico.webp" width="1024" height="546" alt="Tela Diagnóstico do ORIOM QC, com veredito conforme do lote L3." loading="lazy">
+          <span>Ampliar</span>
+        </button>
         <h3>Diagnóstico</h3>
         <p>Filtra-se por lote ou pede-se o histórico completo. O veredito aparece primeiro: conforme, ou o que fazer agora. O texto ao lado detalha resultado, especificação, média do processo e o índice ORIOM. A lista à esquerda separa consistência do lote, carta de controle, causas, CRM, correlação, cluster, tendência e diagnóstico pontual. Cluster e correlação só entram com amostra suficiente. Exportar DOCX grava esse parecer. Ele apoia a decisão e não libera o lote no lugar do responsável técnico.</p>
+        <p class="demo">Laboratório de demonstração: nomes como “Teste”, o lote L3 e as datas são de amostra.</p>
       </article>
-      <article class="shot">
-        <img src="tela-graficos.webp" width="1024" height="540" alt="Tela Gráficos do ORIOM QC, na carta de controle do resultado." loading="lazy">
+      <article class="shot" id="graficos">
+        <button type="button" class="zoom">
+          <img src="tela-graficos.webp" width="1024" height="540" alt="Tela Gráficos do ORIOM QC, na carta de controle do resultado." loading="lazy">
+          <span>Ampliar</span>
+        </button>
         <h3>Gráficos</h3>
         <p>Três abas: carta de controle, teor por carga e índice. A carta desenha o resultado, os limites da especificação, a média e as faixas de três desvios. No explorador escolhem-se o lote e os eixos X e Y; Gerar X × Y monta a comparação, e Exportar DOCX leva o gráfico para fora. O programa avisa quando ainda não há correlação de processo para mostrar.</p>
+        <p class="demo">Laboratório de demonstração: nomes como “Teste”, o lote L3 e as datas são de amostra.</p>
       </article>
     </div>
   </div>
@@ -548,10 +725,14 @@ footer {
   <div class="group">
     <h3>Administração</h3>
     <div class="portfolio">
-      <article class="shot">
-        <img src="tela-sistema.webp" width="1024" height="549" alt="Tela Sistema do ORIOM QC, com tema, licença, identidade do laboratório e backup." loading="lazy">
+      <article class="shot" id="sistema">
+        <button type="button" class="zoom">
+          <img src="tela-sistema.webp" width="1024" height="549" alt="Tela Sistema do ORIOM QC, com tema, licença, identidade do laboratório e backup." loading="lazy">
+          <span>Ampliar</span>
+        </button>
         <h3>Sistema</h3>
-        <p>Aparência: tema claro da bancada ou escuro do turno. Licença: nome do laboratório, validade e chave. A chave é emitida pelo fornecedor; o programa não a gera. A identidade — razão social, CNPJ, endereço e incerteza padrão — entra no PDF. Backup agora, restaurar e backup automático diário ficam na mesma tela, seguidos do banco em rede para mais de um posto.</p>
+        <p>Aparência: tema claro da bancada ou escuro do turno. Licença: nome do laboratório, validade e chave. A chave é emitida pelo fornecedor; o programa não a gera. A identidade — razão social, CNPJ, endereço e incerteza padrão — entra no PDF. Backup agora, restaurar e backup automático diário ficam na mesma tela, seguidos do banco em rede para mais de um posto. O identificador da máquina, usado na licença, aparece aqui.</p>
+        <p class="demo">Laboratório de demonstração: nomes como “Teste”, o lote L3 e as datas são de amostra.</p>
       </article>
     </div>
   </div>
@@ -695,8 +876,12 @@ footer {
 </section>
 
 <section id="contato">
-  <h2>Fale sobre o ORIOM QC</h2>
-  <p class="lead">Licença, instalação no laboratório ou os textos. E-mail ou LinkedIn.</p>
+  <h2>Pedir o ORIOM QC</h2>
+  <ol class="passos">
+    <li>Instalação no Windows 10 ou 11, pelo atalho ORIOM Desktop.</li>
+    <li>Avaliação de 14 dias neste computador, a partir da primeira abertura.</li>
+    <li>Licença com o identificador da máquina, mostrado em Sistema.</li>
+  </ol>
   <div class="banco">
     <article class="contact">
       <ul>
@@ -708,7 +893,56 @@ footer {
 </section>
 </main>
 <footer>
+  <p><a href="#textos">Textos de Gean AP</a></p>
   <p>© 2026 Gean AP · ORIOM QC. A leitura dos textos neste site é livre. Reprodução e distribuição fora daqui dependem de autorização do autor.</p>
 </footer>
+<dialog id="ampliar">
+  <form method="dialog">
+    <button type="submit">Fechar</button>
+  </form>
+  <img id="ampliar-img" alt="">
+</dialog>
+<script>
+(function () {
+  var dialog = document.getElementById("ampliar");
+  var full = document.getElementById("ampliar-img");
+  document.querySelectorAll(".zoom").forEach(function (button) {
+    button.addEventListener("click", function () {
+      var picture = button.querySelector("img");
+      full.src = picture.currentSrc || picture.src;
+      full.alt = picture.alt;
+      dialog.showModal();
+    });
+  });
+  dialog.addEventListener("click", function (event) {
+    var box = dialog.getBoundingClientRect();
+    var inside = event.clientX >= box.left && event.clientX <= box.right && event.clientY >= box.top && event.clientY <= box.bottom;
+    if (!inside) dialog.close();
+  });
+  dialog.addEventListener("close", function () {
+    full.removeAttribute("src");
+  });
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav[aria-label="Seções"] a'));
+  var sections = links.map(function (link) {
+    return document.querySelector(link.getAttribute("href"));
+  }).filter(Boolean);
+  function mark() {
+    var line = Math.max(110, window.innerHeight * 0.35);
+    var atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 24;
+    var current = sections[0];
+    if (atBottom) current = sections[sections.length - 1];
+    else sections.forEach(function (section) {
+      if (section.getBoundingClientRect().top <= line) current = section;
+    });
+    links.forEach(function (link) {
+      if (link.getAttribute("href") === "#" + current.id) link.setAttribute("aria-current", "page");
+      else link.removeAttribute("aria-current");
+    });
+  }
+  mark();
+  window.addEventListener("scroll", mark, { passive: true });
+})();
+</script>
 </body>
 </html>
